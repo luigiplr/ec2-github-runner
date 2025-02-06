@@ -56,7 +56,7 @@ async function startEc2Instance(label, githubRegistrationToken) {
     InstanceType: config.input.ec2InstanceType,
     MaxCount: 1,
     MinCount: 1,
-    SecurityGroupIds: [config.input.securityGroupId],
+    SecurityGroupIds: config.input.securityGroupId.replace(/\s/g, '').split(','),
     SubnetId: config.input.subnetId,
     UserData: Buffer.from(userData.join('\n')).toString('base64'),
     IamInstanceProfile: { Name: config.input.iamRoleName },
@@ -108,7 +108,7 @@ async function waitForInstanceRunning(ec2InstanceId) {
             Values: [ec2InstanceId],
           },
         ],
-      },
+      }
     );
 
     core.info(`AWS EC2 instance ${ec2InstanceId} is up and running`);
