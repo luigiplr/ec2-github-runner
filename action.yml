@@ -1,5 +1,5 @@
 name: On-demand self-hosted AWS EC2 runner for GitHub Actions (multi security group id support)
-description: GitHub Action for automatic creation and registration AWS EC2 instance as a GitHub Actions self-hosted runner w/ multi security group id support.
+description: w/ multi security group id support.
 author: Volodymyr Machula + Luigi Poole
 branding:
   icon: 'box'
